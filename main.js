@@ -3,13 +3,21 @@ import "mathlive/dist/mathlive-fonts.css";
 import * as mathlive from "mathlive";
 
 const app = document.querySelector("#app");
+const latex1 = '\\text{Le résultat de }37+(-56)\\text{ est } \\textcolor{green}{\\text{négatif}}'
+const latex2 = '\\textcolor{green}{\\text{négatif}}'
+
 app.innerHTML = `
   <h2>Reproduce your Mathlive Bug / Issue below:</h2>
-  <a href="https://cortexjs.io/docs/mathlive/" target="_blank">Documentation</a>
-  <div id="math-input" class="mathfield-element"></div>
+  </br>
+  <span>${latex1} :</span>
+  </br>
+  <span>$$${latex1}$$</span>
+  </br>
+  <span>${latex2} :</span>
+  </br>
+  <span>$$${latex2}$$</span>
+
+
 `;
 
-const mfe = new mathlive.MathfieldElement();
-mfe.value = `\\sigma=\\sqrt[]{\\frac{1}{N}\\sum ^N_{i=1}(x_i-\\mu)^2}\\text{ 20where }\\mu=\\frac{1}{N}\\sum ^N_{i=1}x_i`;
-const div = document.querySelector("#math-input");
-div.appendChild(mfe);
+mathlive.renderMathInDocument()
